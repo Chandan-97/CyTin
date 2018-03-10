@@ -1,61 +1,6 @@
-{% load static %}
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-    vertical-align: baseline;
-    text-decoration: none;
-}
-
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
 body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-/* Styling Starts */
-
-body{
-    width: 95%;
-    min-width: 320px;
-    margin: 0 auto;
-    background: url("{% static 'CyTin/images/background.jpg'}") no-repeat center fixed;
-    background-size: cover;
-    background: linear-gradient(to bottom right, rgba(127, 121, 216, 0.233), rgba(165, 184, 185, 0.829));
+    margin: 0;
+    padding: 0;
 }
 
 #title{
@@ -63,16 +8,16 @@ body{
 }
 
 .heading{
+    top: 0;
+    left: 0;
+    padding: 0 0 1em 2em;
     position: sticky;
-    margin: 1.2em 1.2em 1.2em 0;
-    padding: 1.2em 1.2em 1.2em 0;
-    /* min-width: 500px; */
+    background-color: #f1f1f1;
     border: none;
 }
 
 .heading:hover{
     color: rgb(63, 57, 57);
-    border-radius: 7px;
     background: rgba(171, 170, 187, 0.233);
     transition: background-color 200ms linear;
 }
@@ -90,21 +35,84 @@ body{
     
 }
 
-/* Head Section Ends */
 
-/* Left Sidebar Starts */
-.sidebar-left{
-    padding: 3px;
-    border: 3px solid rgba(165, 184, 185, 0.829);
-    border-radius: 5px;
-    display: inline-block;
-    position: sticky;
+.sidebar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     width: 20%;
-    min-width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
 }
-/* Left Sidebar ends */
 
-/* Main Area starts */
+
+.nav-item{
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.nav-item.active{
+    background-color: #4CAF50;
+    color: white;
+}
+
+.nav-item:hover:not(.active){
+    background-color: #555;
+    color: white;
+}
+
 .main-area{
-    width: 60%;
+    margin-left:20%;
+    padding:1px 16px;
+    height:1000px;
+    margin-top: 0.5em;
+}
+
+.item{
+    margin: 8px;
+    padding: 4px;
+    border: 2px solid gray;
+}
+
+.item-title{
+    font-size: 1.5em;
+    text-decoration: none;
+    text-decoration: underline;
+    padding: 4px 0;
+}
+
+.item-description{
+    font-size: 1.0em;
+    margin: 4px 0;
+}
+
+.item-category{
+    padding: 8px 0;
+}
+
+.page-nav{
+    padding: 20px;
+    border: 1px solid red;
+    margin-left: 20%;
+    padding: 12px 16px;
+    margin-bottom: 4px;
+}
+
+.page-nav a{
+    text-decoration: none;
+    color: red;
+    padding: 2px 12px;
+    margin: 0 auto;
+}
+
+.page-nav a:hover{
+    color: yellow;
+}
+
+.current-page{
+    color: green;
 }
