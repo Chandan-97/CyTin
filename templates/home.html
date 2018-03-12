@@ -1,22 +1,23 @@
 {% include "header.html" %}
 
 <div class="main-area">
-  <div class="item">
-    
-    <div class="item-title">
-      <a href="#">Adobe Photshop</a>
-    </div>
-    <div class="item-description"> Lorem Ipsum has been the industry's standard dummy text ever 
-      since the 1500s, when an unknown printer took a galley of type and scrambled it to make a 
-      type specimen book <a href="#"> more...</a>
-    </div>
-    <div class="item-category">
-      Category : 
-      <a href="">Games</a>
-      <a href="">OS</a>
-      <a href="">Application</a>
-    </div>
-  </div>
+      {% for item in item_list %}
+        <div class="item">
+          <div class="item-title">
+            <a href="/software/{{ item.pk }}">{{ item.title }}</a>
+          </div>
+          <div class="item-description"> {{item.short_descr}} <a href="/software/{{ item.pk }}"> more...</a>
+          </div>
+          <div class="item-category">
+            Category : 
+            <a href="">Games</a>
+            <a href="">OS</a>
+            <a href="">Application</a>
+          </div>
+        </div>
+    {% endfor %}
+
+
 
   <div class="item">
     <div class="item-title">
@@ -114,8 +115,24 @@
     </div>
   </div>
 
-
+  <div class="item">
+    <div class="item-title">
+      <a href="#">Adobe Photshop</a>
+    </div>
+    <div class="item-description"> Lorem Ipsum has been the industry's standard dummy text ever 
+      since the 1500s, when an unknown printer took a galley of type and scrambled it to make a 
+      type specimen book <a href="#"> more...</a>
+    </div>
+    <div class="item-category">
+      Category : 
+      <a href="">Games</a>
+      <a href="">OS</a>
+      <a href="">Application</a>
+    </div>
+  </div>
 
 </div>
-
+{% load static %}
+<script type="text/javascript" src="{% static 'CyTin_View/script/script.js' %}"></script>
+<div ></div>
 {% include "footer.html" %}

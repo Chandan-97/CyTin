@@ -5,7 +5,7 @@
   {% load static %}
   <link rel="stylesheet" type="text/css" href="{% static 'CyTin_View/css/style.css' %}">
 </head>
-<body>
+<body onload="addactive({{active}})">
 
 <div class="page-header heading">
     <span id="title"><span class="logo">
@@ -14,11 +14,11 @@
 </div>
 
 <div class="sidebar">
-    <div><a class="nav-item active" href="#">Home</a></div>
-    <div><a class="nav-item " href="#">All Categories</a></div>
-    <div><a class="nav-item " href="#">Newly Added</a></div>
-    <div><a class="nav-item " href="#">Major OS</a></div>
-    <div><a class="nav-item " href="#">News</a></div>
-    <div><a class="nav-item " href="#">Requested Softwares</a></div>
-    <div><a class="nav-item " href="#">Request A Softwares</a></div>
+    <div><a class="nav-item " id="home" href="/">Home</a></div>
+    <div><a class="nav-item " id="categories" href="/categories">All Categories</a></div>
+    <div><a class="nav-item " id="newlyadded" href="#">Newly Added</a></div>
+    <div><a class="nav-item " id="majoros" href="#">Major OS</a></div>
+    <div><a class="nav-item " id="news" href="#">News</a></div>
+    <div><a class="nav-item " id="reqested" href="#">Requested Softwares</a></div>
+    <div><a class="nav-item " id="requestnew" href="#">Request A Softwares</a></div>
 </div>

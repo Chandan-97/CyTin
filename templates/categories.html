@@ -1,0 +1,11 @@
+{% include "header.html" %}
+
+<div style="height: 4px;"></div>
+<div class="main-area">
+{% for tag in tags %}
+  <span class="tags"><a href="#">{{tag}}</a></span>
+{% endfor %}
+</div>
+
+
+{% include "footer.html" %}

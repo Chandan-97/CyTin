@@ -1,0 +1,18 @@
+{% include "header.html" %}
+
+{% for item in items %}
+<div class="main-area">
+  <div class="item">
+    <div class="item-title">{{ item.title }}</div>
+    <div class="item-description"> {{item.descr}}</div>
+    <div class="item-category">
+      Category : 
+      <a href="">Games</a>
+      <a href="">OS</a>
+      <a href="">Application</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% include "footer.html" %}
