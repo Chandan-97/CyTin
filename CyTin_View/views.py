@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from .models import Software
 from django.http import HttpResponse
+
+from .models import Software
+from .models import News
+
 from .tags import getTags
 
 # Create your views here.
@@ -22,8 +25,8 @@ def details(request, id):
 	# print(query)
 	context = {
 		"items" : query,
+		"active" : "home",
 	}
-	print(context)
 	return render(request, "details.html", context)
 
 def categories(request):
@@ -41,3 +44,42 @@ def categories(request):
 	print(context)
 	return render(request, "categories.html", context)
 	# return test(request, 1)
+
+def newlyadded(request):
+	query = Software.objects.all().order_by("-timestamp")
+	context = {
+		"item_list" : query,
+		"active" : "newlyadded",
+	}
+	print(context)
+	return render(request, "home.html", context)
+	# return test(request, 1)
+
+def majoros(request):
+	query = Software.objects.filter(isOs=True)
+	context = {
+		"item_list" : query,
+		"active" : "majoros",
+	}
+	print(context)
+	return render(request, "home.html", context)
+	# return test(request, 1)
+
+def news(request):
+	query = News.objects.all().order_by("-timestamp")
+
+	context = {
+		"news_list" : query,
+		"active" 	: "news",
+	}
+
+	return render(request, "news.html", context)
+
+def news_details(request, id):
+	query = News.objects.filter(pk=id)
+	context = {
+		"news" : query,
+		"active" : "news",
+	}
+
+	return render(request, "news_details.html", context)

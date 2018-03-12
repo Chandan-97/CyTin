@@ -1,0 +1,15 @@
+{% include "header.html" %}
+
+{% for item in news %}
+<div class="main-area">
+  <div class="item">
+    <div class="item-title">{{ item.title }}</div>
+    <div class="item-description"> {{item.descr}}</div>
+
+    <div class="item-category">
+      Added :  {{item.timestamp}}
+    </div>
+</div>
+{% endfor %}
+
+{% include "footer.html" %}

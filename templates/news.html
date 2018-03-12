@@ -1,18 +1,14 @@
 {% include "header.html" %}
 
 <div class="main-area">
-      {% for item in item_list %}
+      {% for news in news_list %}
         <div class="item">
           <div class="item-title">
-            <a href="/software/{{ item.pk }}">{{ item.title }}</a>
+            <a href="/news/{{ news.pk }}">{{ news.title }}</a>
           </div>
-          <div class="item-description"> {{item.short_descr}} <a href="/software/{{ item.pk }}"> more...</a>
+          <div class="item-description"> {{news.short_descr}} <a href="/news/{{ news.pk }}"> more...</a>
           </div>
           <div class="item-category">
-            Category : 
-            <a href="">Games</a>
-            <a href="">OS</a>
-            <a href="">Application</a>
           </div>
         </div>
     {% endfor %}

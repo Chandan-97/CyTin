@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from CyTin_View.views import home, test, details, categories
+from CyTin_View.views import *
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -25,6 +25,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^software/(?P<id>\d+)$', details),
     url(r'^categories$', categories),
+    url(r'^newlyadded$', newlyadded),
+    url(r'^majoros$', majoros),
+    url(r'^news$', news),
+    url(r'^news/(?P<id>\d+)$', news_details),
 ]
 
 if settings.DEBUG:
