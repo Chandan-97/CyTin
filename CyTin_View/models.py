@@ -11,7 +11,9 @@ class Software(models.Model):
 	version		= models.CharField(max_length=100, null=False, unique=True)
 	category 	= models.CharField(max_length=200, null=False)
 	timestamp 	= models.DateTimeField(auto_now_add=True)
-	isOs 		= models.BooleanField(null=False)
+	isos 		= models.BooleanField(null=False)
+	isRequested = models.BooleanField(null=False, default=False)
+	requestedby = models.CharField(max_length=20, default="Admin")
 
 	def __str__(self):
 		return self.title
@@ -24,3 +26,5 @@ class News(models.Model):
 
 	def __str__(self):
 		return self.title
+
+

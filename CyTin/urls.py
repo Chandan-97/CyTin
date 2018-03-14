@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^majoros$', majoros),
     url(r'^news$', news),
     url(r'^news/(?P<id>\d+)$', news_details),
+    url(r'^requested$', requested),
 ]
 
 if settings.DEBUG:

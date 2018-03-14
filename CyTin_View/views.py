@@ -56,7 +56,7 @@ def newlyadded(request):
 	# return test(request, 1)
 
 def majoros(request):
-	query = Software.objects.filter(isOs=True)
+	query = Software.objects.filter(isos=True)
 	context = {
 		"item_list" : query,
 		"active" : "majoros",
@@ -83,3 +83,12 @@ def news_details(request, id):
 	}
 
 	return render(request, "news_details.html", context)
+
+def requested(request):
+	query = Software.objects.filter(isRequested=True).order_by("-timestamp")
+	context = {
+		"item_list" : query,
+		"active" 	: "requested",
+	}
+
+	return render(request, "home.html", context)
