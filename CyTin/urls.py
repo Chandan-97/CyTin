@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from CyTin_View.views import *
+from accounts.views import (login_view, register_view, logout_view)
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -31,6 +32,7 @@ urlpatterns = [
     url(r'^news/(?P<id>\d+)$', news_details),
     url(r'^requested$', requested),
     url(r'^categories/(?P<category>[a-zA-Z]+)$', bycategories),
+    url(r'^login/', login_view, name="login"),
 ]
 
 if settings.DEBUG:
