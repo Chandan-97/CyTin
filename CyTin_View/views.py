@@ -44,7 +44,7 @@ def categories(request):
 		"active" : "categories",
 	}
 	
-	print(context)
+	# print(context)
 	return render(request, "categories.html", context)
 	# return test(request, 1)
 
@@ -56,7 +56,7 @@ def newlyadded(request):
 		"item_list" : query,
 		"active" : "newlyadded",
 	}
-	print(context)
+	# print(context)
 	return render(request, "home.html", context)
 	# return test(request, 1)
 
@@ -68,7 +68,7 @@ def majoros(request):
 		"item_list" : query,
 		"active" : "majoros",
 	}
-	print(context)
+	# print(context)
 	return render(request, "home.html", context)
 	# return test(request, 1)
 
@@ -104,5 +104,12 @@ def requested(request):
 
 def bycategories(request, category):
 	query = Software.objects.filter(category__icontains=category)
-	print(query)
-	return HttpResponse("Hello World")
+	# print(query)
+	for item in query:
+		item.category = getTags(item.category)
+	context = {
+		"item_list" : query,
+		"active" 	: "home",
+	}
+
+	return render(request, "home.html", context)
