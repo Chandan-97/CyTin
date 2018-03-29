@@ -9,7 +9,9 @@ from .tags import getTags
 # Create your views here.
 
 def home(request):
-	query = Software.objects.all();
+	query = Software.objects.all()
+	for item in query:
+		item.category = list(getTags(item.category))
 	context = {
 		"item_list" : query,
 		"active" : "home",
@@ -22,7 +24,8 @@ def test(request, id):
 
 def details(request, id):
 	query = Software.objects.filter(pk=id)
-	# print(query)
+	for item in query:
+		item.category = (getTags(item.category))
 	context = {
 		"items" : query,
 		"active" : "home",
@@ -33,7 +36,7 @@ def categories(request):
 	query = Software.objects.all()
 	res_str = ""
 	for q in query:
-		res_str += (" " + q.category)
+		res_str += (" " + (q.category))
 	tags = getTags(res_str)
 
 	context = {
@@ -47,6 +50,8 @@ def categories(request):
 
 def newlyadded(request):
 	query = Software.objects.all().order_by("-timestamp")
+	for item in query:
+		item.category = getTags(item.category)
 	context = {
 		"item_list" : query,
 		"active" : "newlyadded",
@@ -57,6 +62,8 @@ def newlyadded(request):
 
 def majoros(request):
 	query = Software.objects.filter(isos=True)
+	for item in query:
+		item.category = getTags(item.category)
 	context = {
 		"item_list" : query,
 		"active" : "majoros",
@@ -86,9 +93,16 @@ def news_details(request, id):
 
 def requested(request):
 	query = Software.objects.filter(isRequested=True).order_by("-timestamp")
+	for item in query:
+		item.category = getTags(item.category)
 	context = {
 		"item_list" : query,
 		"active" 	: "requested",
 	}
 
 	return render(request, "home.html", context)
+
+def bycategories(request, category):
+	query = Software.objects.filter(category__icontains=category)
+	print(query)
+	return HttpResponse("Hello World")

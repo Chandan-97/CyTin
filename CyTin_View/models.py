@@ -2,6 +2,8 @@
 
 from django.db import models
 
+from .tags import getTags
+
 # Create your models here.
 
 class Software(models.Model):
@@ -16,7 +18,11 @@ class Software(models.Model):
 	requestedby = models.CharField(max_length=20, default="Admin")
 
 	def __str__(self):
-		return self.title
+		res = self.title + ", Category : ["
+		for x in self.category:
+			res = res + x + " "
+		res += "]"
+		return res
 
 class News(models.Model):
 	title 		= models.CharField(max_length=20, null=False)
@@ -26,5 +32,3 @@ class News(models.Model):
 
 	def __str__(self):
 		return self.title
-
-

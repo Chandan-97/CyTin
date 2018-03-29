@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^news$', news),
     url(r'^news/(?P<id>\d+)$', news_details),
     url(r'^requested$', requested),
+    url(r'^categories/(?P<category>[a-zA-Z]+)$', bycategories),
 ]
 
 if settings.DEBUG:

@@ -9,10 +9,11 @@
           <div class="item-description"> {{item.short_descr}} <a href="/software/{{ item.pk }}"> more...</a>
           </div>
           <div class="item-category">
-            Category : 
-            <a href="">Games</a>
-            <a href="">OS</a>
-            <a href="">Application</a>
+
+          Category : 
+          {% for category in item.category %}
+            <a href="">{{category}} </a>&nbsp;
+          {% endfor %}
           </div>
         </div>
     {% endfor %}

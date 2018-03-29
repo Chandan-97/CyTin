@@ -3,9 +3,7 @@
 <div style="height: 4px;"></div>
 <div class="main-area">
 {% for tag in tags %}
-  <span class="tags"><a href="#">{{tag}}</a></span>
+  <span class="tags"><a href="categories/{{tag}}">#{{tag}}</a></span>
 {% endfor %}
 </div>
-
-
 {% include "footer.html" %}
