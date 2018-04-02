@@ -1,2 +1,17 @@
 - [x] Completed
 - [ ] InComplete
+
+- [ ] Add Registration
+- [ ] email verification (sendgrid)
+- [ ] mark favourite
+- [ ] Comment
+- [ ] Request a Software 
+- [ ] email notification
+- [ ] subscribe for updates
+- [ ] Improved UI and Models
+- [ ] Ajax for page reloading
+- [ ] Chat to Team
+- [ ] Enter into db through webscraping
+- [ ] Download option
+- [ ] Similar softwares and posts
+- [ ] Exams and practical files (:p)
