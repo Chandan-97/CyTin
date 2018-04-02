@@ -33,6 +33,8 @@ urlpatterns = [
     url(r'^requested$', requested),
     url(r'^categories/(?P<category>[a-zA-Z]+)$', bycategories),
     url(r'^login/', login_view, name="login"),
+    url(r'^logout/', logout_view, name="logout"),
+    url(r'^register/', register_view, name="register"),
 ]
 
 if settings.DEBUG:
