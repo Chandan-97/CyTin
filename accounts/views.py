@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django.contrib.auth import *
 from .form import LoginForm, RegisterForm
@@ -20,7 +20,7 @@ def login_view(request):
 		user = authenticate(username=username, password=password)
 		login(request, user)
 		print (request.user.is_authenticated())
-
+		return redirect("/")
 	# Send it to render into page "login_form.html"
 	return render(request, "login_form.html", {"form" : form})
 
@@ -30,12 +30,18 @@ def logout_view(request):
 	return render(request, "login_form.html", {})
 
 def register_view(request):
+	print(request.user.is_authenticated())
 	form = RegisterForm(request.POST or None)
 
 	if form.is_valid():
-		name 	= form.cleaned_data.get("name")
-		username= form.cleaned_data.get("username")
-		email 	= form.cleaned_data.get("email")
-		password= form.cleaned_data.get("password")
-		retype_password = form.cleaned_data.get("retype_password")
-	return render(request, "register_form.html", {"form" : form})
+		user = form.save(commit=False)
+		password = form.cleaned_data.get("password")
+		user.set_password(password)
+		user.save()
+		new_user = authenticate(username=user.username, password=user.password)
+		login(request, user)
+		print(request.user.is_authenticated())
+		return redirect("/")
+	return render(request, "login_form.html", {"form" : form})
+
+	# 12:09
