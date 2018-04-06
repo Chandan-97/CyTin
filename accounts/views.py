@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 
 from django.contrib.auth import *
-from .form import LoginForm, RegisterForm
+from .form import LoginForm, RegisterForm, RequestnewForm
 
 
 # Create your views here.
@@ -44,4 +44,17 @@ def register_view(request):
 		return redirect("/")
 	return render(request, "login_form.html", {"form" : form})
 
-	# 12:09
+def requestnew_view(request):
+	form = RequestnewForm(request.POST or None)
+
+	if form.is_valid():
+		Software = form.save(commit=False)
+		Software.software = form.cleaned_data.get("Software")
+		if(form.cleaned_data.get("Version")):
+			Software.version = form.cleaned_data.get("Version")
+		if(form.cleaned_data.get("Comment")):
+			Software.comment = form.cleaned_data.get("Comment")
+		Software.save()
+
+
+	return render(request, "requestnew_form.html", {"form" : form})

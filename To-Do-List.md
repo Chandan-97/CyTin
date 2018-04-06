@@ -1,7 +1,8 @@
 - [x] Completed
 - [ ] InComplete
 
-- [ ] Add Registration
+- [x] Add Registration
+- [x] Request a Software page
 - [ ] email verification (sendgrid)
 - [ ] mark favourite
 - [ ] Comment
@@ -10,7 +11,7 @@
 - [ ] subscribe for updates
 - [ ] Improved UI and Models
 - [ ] Ajax for page reloading
-- [ ] Chat to Team
+- [x] Chat to Team
 - [ ] Enter into db through webscraping
 - [ ] Download option
 - [ ] Similar softwares and posts

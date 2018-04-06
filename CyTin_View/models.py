@@ -32,3 +32,16 @@ class News(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class Requestnew(models.Model):
+	software = models.CharField(max_length=30, null=False)
+	version  = models.CharField(max_length=20, null=True, default="N/A")
+	comment  = models.CharField(max_length=600, null=True, default="No Comments")
+	timestamp = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		ans = "Requested Software => "
+		ans = ans + "[Software : " + self.software + "], "
+		ans = ans + "[Version  : " + self.version  + "], "
+		ans = ans + "[Comment  : " + self.comment  + "]"
+		return ans

@@ -16,7 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from CyTin_View.views import *
-from accounts.views import (login_view, register_view, logout_view)
+from accounts.views import (login_view,
+                            register_view, 
+                            logout_view, requestnew_view)
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -35,6 +37,7 @@ urlpatterns = [
     url(r'^login/', login_view, name="login"),
     url(r'^logout/', logout_view, name="logout"),
     url(r'^register/', register_view, name="register"),
+    url(r'^requestnew/', requestnew_view, name="requestnew"),
 ]
 
 if settings.DEBUG:
