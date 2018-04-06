@@ -1,8 +1,6 @@
-- [x] Completed
-- [ ] InComplete
-
 - [x] Add Registration
 - [x] Request a Software page
+- [ ] authentication required for Requesting
 - [ ] email verification (sendgrid)
 - [ ] mark favourite
 - [ ] Comment
