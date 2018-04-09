@@ -1,6 +1,6 @@
 - [x] Add Registration
 - [x] Request a Software page
-- [ ] authentication required for Requesting
+- [x] authentication required for Requesting
 - [ ] email verification (sendgrid)
 - [ ] mark favourite
 - [ ] Comment
