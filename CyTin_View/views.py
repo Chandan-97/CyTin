@@ -9,6 +9,8 @@ from .tags import getTags
 # Create your views here.
 
 def home(request):
+	# The User who is logged in
+	# print(request.user)
 	query = Software.objects.all()
 	for item in query:
 		item.category = list(getTags(item.category))

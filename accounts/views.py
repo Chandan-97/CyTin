@@ -45,6 +45,12 @@ def register_view(request):
 	return render(request, "login_form.html", {"form" : form})
 
 def requestnew_view(request):
+
+	user = request.user
+
+	if(user.is_authenticated() == False):
+		return redirect("/login")
+
 	form = RequestnewForm(request.POST or None)
 
 	if form.is_valid():
