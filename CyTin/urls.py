@@ -38,6 +38,7 @@ urlpatterns = [
     url(r'^logout/', logout_view, name="logout"),
     url(r'^register/', register_view, name="register"),
     url(r'^requestnew/', requestnew_view, name="requestnew"),
+    url(r'^sendmail/', sendmail_view, name="sendmail"),
 ]
 
 if settings.DEBUG:
