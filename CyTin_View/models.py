@@ -34,6 +34,9 @@ class News(models.Model):
 		return self.title
 
 class Requestnew(models.Model):
+	class Meta:
+		verbose_name_plural = "RequestNew"
+		
 	software = models.CharField(max_length=30, null=False)
 	version  = models.CharField(max_length=20, null=True, default="N/A")
 	comment  = models.CharField(max_length=600, null=True, default="No Comments")
