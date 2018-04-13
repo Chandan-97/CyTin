@@ -1,15 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from .models import Software
 from .models import News
-
 from .tags import getTags
 
 import sendgrid
 import os
 from sendgrid.helpers.mail import *
-
 # Create your views here.
 
 def home(request):
@@ -122,6 +120,7 @@ def bycategories(request, category):
 
 def sendmail_view(request):
 	sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
+	print(os.environ.get("SENDGRID_API_KEY"))
 	from_email = Email("iamoneofmykind@gmail.com")
 	to_email = Email("iamoneofmykind@gmail.com")
 	subject = "Sending with SendGrid is Fun"

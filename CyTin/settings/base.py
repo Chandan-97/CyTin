@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'CyTin_View',
-    "sendgrid",
+    'sendgrid',
+    'accounts',
 ]
 
 MIDDLEWARE = [

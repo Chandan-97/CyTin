@@ -25,6 +25,9 @@ class Software(models.Model):
 		return res
 
 class News(models.Model):
+	class Meta:
+		verbose_name_plural = "News"
+		
 	title 		= models.CharField(max_length=20, null=False)
 	timestamp 	= models.DateTimeField(auto_now_add=True)
 	short_descr = models.CharField(max_length=300, null=False)
@@ -36,7 +39,7 @@ class News(models.Model):
 class Requestnew(models.Model):
 	class Meta:
 		verbose_name_plural = "RequestNew"
-		
+
 	software = models.CharField(max_length=30, null=False)
 	version  = models.CharField(max_length=20, null=True, default="N/A")
 	comment  = models.CharField(max_length=600, null=True, default="No Comments")
